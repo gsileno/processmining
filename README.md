@@ -116,11 +116,18 @@ A pure sequence net where every transition connects exactly 1 place to 1 place w
 
 ## References
 
-- [1] van der Aalst, W. M. P. (2010). Process Discovery: Capturing the Invisible. IEEE Computational Intelligence Magazine, 5(1), 28-41.
-- [2] Weijters, A. J. M. M., Van der Aalst, W. M. P., & Alves de Medeiros, A. K. (2006). Process mining with the heuristics miner-algorithm. Technische Universiteit Eindhoven, Department of Technology Management.
-- [3] Leemans, S. J., Fahland, D., & Van Der Aalst, W. M. (2013). Discovering block-structured process models from event logs—a general framework. In Business Process Management: 11th International Conference, BPM 2013.
-- [4] Van Der Aalst, W. M. P. (2016). Process Mining: Data Science in Action
-- [5] Rozinat, A., & van der Aalst, W. M. P. (2008). Conformance checking of processes based on monitoring data. Information Systems, 33(1), 64-97.
-- [6] Berti, A., & van der Aalst, W. M. P. (2020). A novel token-based replay technique to speed up conformance checking and process enhancement. Transactions on Petri Nets and Other Models of Concurrency XV, 2021.
-- [7] McCabe, T. J. (1976). A complexity measure. IEEE Transactions on Software Engineering, (4), 308-320. 
-- [8] Lassen, K. B., & van der Aalst, W. M. P. (2009). Complexity metrics for Workflow nets. Information and Software Technology, 51(3), 610-626. Control
+[1] van der Aalst, W. M. P. (2010). Process Discovery: Capturing the Invisible. IEEE Computational Intelligence Magazine, 5(1), 28-41.
+
+[2] Weijters, A. J. M. M., Van der Aalst, W. M. P., & Alves de Medeiros, A. K. (2006). Process mining with the heuristics miner-algorithm. Technische Universiteit Eindhoven, Department of Technology Management.
+
+[3] Leemans, S. J., Fahland, D., & Van Der Aalst, W. M. (2013). Discovering block-structured process models from event logs—a general framework. In Business Process Management: 11th International Conference, BPM 2013.
+
+[4] Van Der Aalst, W. M. P. (2016). Process Mining: Data Science in Action
+
+[5] Rozinat, A., & van der Aalst, W. M. P. (2008). Conformance checking of processes based on monitoring data. Information Systems, 33(1), 64-97.
+
+[6] Berti, A., & van der Aalst, W. M. P. (2020). A novel token-based replay technique to speed up conformance checking and process enhancement. Transactions on Petri Nets and Other Models of Concurrency XV, 2021.
+
+[7] McCabe, T. J. (1976). A complexity measure. IEEE Transactions on Software Engineering, (4), 308-320. 
+
+[8] Lassen, K. B., & van der Aalst, W. M. P. (2009). Complexity metrics for Workflow nets. Information and Software Technology, 51(3), 610-626. Control
