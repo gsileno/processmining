@@ -2,23 +2,23 @@
 
 This repository collects simple Python implementations of three process mining algorithms:
 
-- **Alpha Miner**, from [1]
-- **Heuristic Miner** (filtering infrequent cases), from [2]
-- **Inductive Miner Infrequent** (filtering infrequent cases), from [3]
+- *Alpha Miner*, from [1]
+- *Heuristic Miner* (filtering infrequent cases), from [2]
+- *Inductive Miner Infrequent* (filtering infrequent cases), from [3]
 
 ## Algorithms
 
 ### Alpha Miner
 
-The algorithm for Alpha Miner [1] considered here covers the **ordering relations** which map log-based successions to formal process dependencies:
-1. **Direct Succession ($A > B$):** $B$ immediately follows $A$
-2. **Causality ($A \rightarrow B$):** $A > B$ happens, but never $B > A$.
-3. **Parallelism ($A \parallel B$):** Both $A > B$ and $B > A$ happen 
-4. **Choice or Alternative ($A \oplus B$):** Neither $A > B$ nor $B > A$ ever happen
+Alpha Miner [1] is based primarily the *ordering relations* which map log-based successions to formal process dependencies:
+1. *direct succession* ($A > B$): $B$ immediately follows $A$
+2. *causality* ($A \rightarrow B$): $A > B$ happens, but never $B > A$.
+3. *parallelism* ($A \parallel B$): Both $A > B$ and $B > A$ happen 
+4. *choice* or *alternative* ($A \oplus B$):Neither $A > B$ nor $B > A$ ever happen
 
 ### Heuristic Miner
 
-While the Alpha Miner is notorious for failing when faced with "noisy" or infrequent data, the Heuristics Miner [2] was explicitly designed to handle noise and exceptions by using frequency and a dependency measure formula. The Heuristic Miner calculates the **dependency score** between two activities $A$ and $B$, which is defined as:
+While the Alpha Miner is notorious for failing when faced with "noisy" or infrequent data, the Heuristics Miner [2] was explicitly designed to handle noise and exceptions by using frequency and a dependency measure formula. This *dependency score* between two activities $A$ and $B$ is defined as:
 
 $$\text{Dependency}(A \rightarrow B) = \frac{|A > B| - |B > A|}{|A > B| + |B > A| + 1}$$
 
@@ -26,9 +26,7 @@ where $|A > B|$ is the frequency of $B$ directly following $A$.
 
 ### Inductive Miner (with Infrequent filter)
 
-The Inductive Miner [3] is the most complex of the three algorithms here. It is a recursive, top-down algorithm. It looks at the entire event log, finds the most prominent behavioral pattern, splits the log into smaller pieces based on that pattern, and then repeats the process on those pieces until there is nothing left to split. 
-
-The algorithm functions in 3 steps. First, it looks at the event log and maps out which activities follow each other immediately. If "Activity A" is followed by "Activity B" 50 times, a strong arrow (edge) is drawn between them. This creates a network of activities connected by arrows, or Directly-Follows Graph (DFG). Second, the algorithm detects a *cut*; it analyzes the DFG to see how it can be chopped into independent parts. It looks for four specific types of cuts, which correspond to standard workflow behaviors: 
+The Inductive Miner [3] is a recursive, top-down algorithm, the most complex of the three. It looks at the entire event log, finds the most prominent behavioral pattern, splits the log into smaller pieces based on that pattern, and then repeats the process on those pieces until there is nothing left to split. Its core functioning can be described in 3 steps. First, it looks at the event log and maps out which activities follow each other immediately. If "Activity A" is followed by "Activity B" 50 times, a strong arrow (edge) is drawn between them. This creates a network of activities connected by arrows, or Directly-Follows Graph (DFG). Second, the algorithm detects a *cut*; it analyzes the DFG to see how it can be chopped into independent parts. It looks for four specific types of cuts, which correspond to standard workflow behaviors: 
 - *sequence* ($\rightarrow$),
 - *exclusive choice* ($\times$ or $\oplus$),
 - *parallel* ($\wedge$ or $+$),
@@ -87,8 +85,8 @@ The most direct way to calculate simplicity is by assessing the fundamental foot
 
 We compute this using two primary variables:
 
-* **Cardinaliates:** Total number of Arcs ($A$), Places ($P$), and Transitions ($T$).
-* **Structural Size Score:** 
+* *Cardinaliates*: Total number of Arcs ($A$), Places ($P$), and Transitions ($T$).
+* *Structural Size Score*: 
 $$\text{Size} = |P| + |T| + |A|$$
 
 Alternatively, you can compute **Graph Density**, which measures how close the Petri net is to being fully interconnected (where lower density typically indicates a cleaner, more readable sequential flow):
@@ -108,7 +106,9 @@ A low Cyclomatic Complexity (e.g., 1 to 5) means the model is highly sequential 
 ### Control-Flow Complexity (weighted coupling)
 
 This metric assesses how difficult it is to trace tokens through the split and join points of the model. Every time a Petri net branches out into an XOR or an AND split, it adds cognitive load for the person reading it. To compute a basic proxy of Control-Flow Complexity (CFC), you look exclusively at the transitions ($T$) and count their degree of connection, where *Fan-out* is the number of output places a transition leads to, and *Fan-in* is the number of input places leading into a transition:
+
 $$\text{CFC Score} = \sum_{t \in T} (\text{Fan-out}(t) - 1)^2$$
+
 A pure sequence net where every transition connects exactly 1 place to 1 place will score a `0` (perfect structural simplicity).
 
 > TO DO: missing genralization measures.
