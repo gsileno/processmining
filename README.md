@@ -6,7 +6,7 @@ This repository collects simple Python implementations of three process mining a
 - *Heuristic Miner*, from [2],
 - *Inductive Miner* ("Infrequent" variant), from [3].
 
-It is meant merely for didactic purposes. Refer to the [https://github.com/process-intelligence-solutions/pm4py](PM4py) Python library for state-of-the-art tools.
+It is meant merely for didactic purposes. Refer to the (PM4py)[https://github.com/process-intelligence-solutions/pm4py] Python library for state-of-the-art tools.
 
 ## Input/Output
 
