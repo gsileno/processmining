@@ -19,7 +19,9 @@ The algorithm for Alpha Miner [1] considered here covers the **ordering relation
 ### Heuristic Miner
 
 While the Alpha Miner is notorious for failing when faced with "noisy" or infrequent data, the Heuristics Miner [2] was explicitly designed to handle noise and exceptions by using frequency and a dependency measure formula. The Heuristic Miner calculates the **dependency score** between two activities $A$ and $B$, which is defined as:
+
 $$\text{Dependency}(A \rightarrow B) = \frac{|A > B| - |B > A|}{|A > B| + |B > A| + 1}$$
+
 where $|A > B|$ is the frequency of $B$ directly following $A$.
 
 ### Inductive Miner (with Infrequent filter)
