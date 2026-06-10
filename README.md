@@ -79,7 +79,7 @@ Where:
 * $E_{fired}(\sigma_k)$ is the set of transitions that actually fired at step $k$ (which is always $1$ for standard sequential logs).
 * $E_{enabled}(\sigma_k, N)$ is the total set of transitions that were structurally unlocked and *capable* of firing at that exact state in the Petri net.
 
-### Structural size and structural density (The E-C-N Metric)
+### Structural size and structural density
 
 The most direct way to calculate simplicity is by assessing the fundamental footprint of the graph structure. A model becomes less simple as the number of nodes (places + transitions) and edges (arcs) grows.
 
