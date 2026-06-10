@@ -130,7 +130,7 @@ $$\text{CFC Score} = \sum_{t \in T} (\text{Fan-out}(t) - 1)^2$$
 
 A pure sequence net where every transition connects exactly 1 place to 1 place will score a `0` (perfect structural simplicity).
 
-> TO DO: missing genralization measures.
+> TO DO: missing generalization measures.
 
 ## References
 
