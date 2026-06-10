@@ -16,7 +16,7 @@ The input for these scripts is a event log, i.e. a list of lists of symbols, eg:
   ["A", "C", "B", "D"],
 ]
 ```
-capturing sequences observed from a monitoring point.
+capturing sequences observed from a certain monitoring point.
 
 The output is a *Petri Net*, i.e. a directed bipartite graph with places and transitions. 
 
