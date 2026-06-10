@@ -35,7 +35,7 @@ By extracting the ordering relations expressed by an event log, Alpha Miner crea
 
 ### Heuristic Miner
 
-While the Alpha Miner is known to fail when faced with "noisy" or infrequent data, the Heuristics Miner [2] was explicitly designed to handle noise and exceptions by using frequency and a dependency measure formula. This *dependency score* between two activities $A$ and $B$ is defined as:
+While the Alpha Miner is known to fail when faced with noisy or infrequent data, the Heuristics Miner [2] was explicitly designed to handle them by using frequency and a dependency measure formula. The *dependency score* between two activities $A$ and $B$ is defined as:
 
 $$\text{Dependency}(A \rightarrow B) = \frac{|A > B| - |B > A|}{|A > B| + |B > A| + 1}$$
 
