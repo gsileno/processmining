@@ -26,14 +26,20 @@ where $|A > B|$ is the frequency of $B$ directly following $A$.
 
 ### Inductive Miner (with Infrequent filter)
 
-The Inductive Miner [3] is the most complex of the three. It is a recursive, top-down algorithm. It looks at the entire event log, finds the most prominent behavioral pattern, splits the log into smaller pieces based on that pattern, and then repeats the process on those pieces until there is nothing left to split. First, the algorithm looks at the event log and maps out which activities follow each other immediately. If "Activity A" is followed by "Activity B" 50 times, a strong arrow (edge) is drawn between them. This creates a network of activities connected by arrows. Second, the algorithm detects a "Cut"; it analyzes the DFG to see how it can be chopped into independent parts. It looks for four specific types of cuts, which correspond to standard workflow behaviors: *sequence* ($\rightarrow$), *exclusive choice* ($\times$ or $\oplus$), *parallel* ($\wedge$ or $+$), *loop* ($\circlearrowleft$). Once a cut is detected, the algorithm creates a "node" in the process tree for that operator (e.g., a parallel node). It then splits the event log into sub-logs based on the pieces it just separated. Sometimes, the algorithm can't find a perfect, clean cut because of "noise" or exceptions in the data; it then applies a fallback mechanism. It might forcibly filter out rare paths, or as a last resort, introduce a "flower loop" (which basically says "any of these activities can happen in any order").
+The Inductive Miner [3] is the most complex of the three algorithms here. It is a recursive, top-down algorithm. It looks at the entire event log, finds the most prominent behavioral pattern, splits the log into smaller pieces based on that pattern, and then repeats the process on those pieces until there is nothing left to split. 
 
-Algorithms in the Inductive Miner family guarantee the discovery of sound process models (models completely free of deadlocks or livelocks). The specific inductive miner "infrequent" variant you shared introduces a noise-filtering threshold step at each recursion level to strip away infrequent behaviors, making it resilient to real-world messy data.
+The algorithm functions in 3 steps. First, it looks at the event log and maps out which activities follow each other immediately. If "Activity A" is followed by "Activity B" 50 times, a strong arrow (edge) is drawn between them. This creates a network of activities connected by arrows, or Directly-Follows Graph (DFG). Second, the algorithm detects a *cut*; it analyzes the DFG to see how it can be chopped into independent parts. It looks for four specific types of cuts, which correspond to standard workflow behaviors: 
+- *sequence* ($\rightarrow$),
+- *exclusive choice* ($\times$ or $\oplus$),
+- *parallel* ($\wedge$ or $+$),
+- *loop* ($\circlearrowleft$).
+Once a cut is detected, the algorithm creates a "node" in the process tree for that operator (e.g., a parallel node). It then splits the event log into sub-logs based on the pieces it just separated. Sometimes, the algorithm can't find a perfect, clean cut because of "noise" or exceptions in the data; it then applies a fallback mechanism. It might forcibly filter out rare paths, or as a last resort, introduce a "flower loop" (which basically says "any of these activities can happen in any order").
+
+Algorithms in the Inductive Miner family guarantee the discovery of *sound* process models (models completely free of deadlocks or livelocks). The specific inductive miner "infrequent" variant introduces a noise-filtering threshold step at each recursion level to strip away infrequent behaviors, making it resilient to real-world messy data.
 
 ## Evaluation metrics
 
-The three algorithms provide different types of output which are here converted into a simple Petri net.
-Given a Petri net (model) and a log (observations), we can evaluate the model according to several dimensions. In the process mining literature, these are associated to four families:
+The three algorithms provide different types of output which are then converted into a Petri net. Given a Petri net (model) and a log (observations), we can evaluate the model according to several dimensions. In the process mining literature, these are associated to four families:
 
 - *Fitness* (Accuracy/Coverage): Can the Petri Net actually replay the traces observed in the log?
 - *Precision*: Does the Petri Net forbid behavior not seen in the log (i.e., is it avoiding over-generalization)?
