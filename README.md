@@ -2,9 +2,9 @@
 
 This repository collects simple Python implementations of three process mining algorithms:
 
-- *Alpha Miner*, from [1]
-- *Heuristic Miner* (filtering infrequent cases), from [2]
-- *Inductive Miner Infrequent* (filtering infrequent cases), from [3]
+- *Alpha Miner*, from [1],
+- *Heuristic Miner* (filtering infrequent cases), from [2],
+- *Inductive Miner Infrequent* (filtering infrequent cases), from [3].
 
 ## Algorithms
 
