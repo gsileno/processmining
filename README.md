@@ -14,7 +14,7 @@ The algorithm for Alpha Miner [1] considered here covers the **ordering relation
 1. **Direct Succession ($A > B$):** $B$ immediately follows $A$
 2. **Causality ($A \rightarrow B$):** $A > B$ happens, but never $B > A$.
 3. **Parallelism ($A \parallel B$):** Both $A > B$ and $B > A$ happen 
-4. **Choice or Alternative ($A \hash B$):** Neither $A > B$ nor $B > A$ ever happen
+4. **Choice or Alternative ($A \# B$):** Neither $A > B$ nor $B > A$ ever happen
 
 ### Heuristic Miner
 
