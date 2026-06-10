@@ -6,6 +6,20 @@ This repository collects simple Python implementations of three process mining a
 - *Heuristic Miner*, from [2],
 - *Inductive Miner* ("Infrequent" variant), from [3].
 
+## Input/Output
+
+The input for these scripts is a event log, i.e. a list of lists of symbols, eg:
+```
+[
+  ["A", "B", "C", "D"],
+  ["A", "B", "C", "D"],
+  ["A", "C", "B", "D"],
+]
+```
+capturing sequences observed from a monitoring point.
+
+The output is a *Petri Net*, i.e. a directed bipartite graph with places and transitions. 
+
 ## Algorithms
 
 ### Alpha Miner
