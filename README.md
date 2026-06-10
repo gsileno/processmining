@@ -15,7 +15,9 @@ Alpha Miner [1] is based primarily the *ordering relations* which map log-based 
 1. *direct succession* ($A > B$): $B$ immediately follows $A$,
 2. *causality* ($A \rightarrow B$): $A > B$ happens, but never $B > A$,
 3. *parallelism* ($A \parallel B$): Both $A > B$ and $B > A$ happen,
-4. *choice* or *alternative* ($A \oplus B$):Neither $A > B$ nor $B > A$ ever happen.
+4. *choice* or *alternative* ($A \oplus B$): Neither $A > B$ nor $B > A$ ever happen.
+
+By extracting the ordering relations expressed by an event log, Alpha Miner creates a matrix of dependencies between event types.
 
 ### Heuristic Miner
 
