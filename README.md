@@ -29,7 +29,7 @@ The output is a *Petri Net*, i.e. a directed bipartite graph with places and tra
 Alpha Miner [1] is based primarily the *ordering relations* which map log-based successions to formal process dependencies:
 
 1. *direct succession* ($A > B$): $B$ immediately follows $A$,
-2. *causality* ($A \rightarrow B$): $A > B$ happens, but never $B > A$,
+2. "*causality*" ($A \rightarrow B$): $A > B$ happens, but never $B > A$,
 3. *parallelism* ($A \parallel B$): Both $A > B$ and $B > A$ happen,
 4. *choice* or *alternative* ($A \oplus B$): Neither $A > B$ nor $B > A$ ever happen.
 
